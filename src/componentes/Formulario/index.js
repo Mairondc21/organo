@@ -11,16 +11,6 @@ const Formulario = (props) => {
     const [time, setTime] = useState('')
 
 
-
-    const times = [
-        'Programacao',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'Mobile',
-        'Inovacao e Gestao'
-    ]
-
     const aoSalvar = (evento) => {
         evento.preventDefault()
         props.aoColaboradorCadastrado({
@@ -29,6 +19,10 @@ const Formulario = (props) => {
             imagem,
             time
         })
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     }
 
     return (
@@ -58,9 +52,9 @@ const Formulario = (props) => {
                 <ListaSuspensa
                     obrigatorio={true}
                     label='Time'
-                    itens={times}
+                    itens={props.times}
                     valor={time}
-                    aoAlterado={valor => setTime(valor)} 
+                    aoAlterado={valor => setTime(valor)}
                 />
                 <Botao>
                     Criar Cards
